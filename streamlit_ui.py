@@ -65,9 +65,10 @@ user_question = st.chat_input("Ask a question...")
 
 if user_question:
     response, rag_results, search_text = run_user_query(user_question)
-    st.write("reponse: ", response)
-    st.write(" ")
-    st.write("rag_results: ", rag_results)
-    st.write(" ")
-    st.write("search_text: ", search_text)
+    st.write("reponse: ")
+    st.write(response)
+    # st.write(" ")
+    # st.write("rag_results: ", rag_results)
+    # st.write(" ")
+    # st.write("search_text: ", search_text)
     
