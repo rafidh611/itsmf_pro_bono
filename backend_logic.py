@@ -51,7 +51,7 @@ def run_rag_llm(query):
     response = openai_client.chat.completions.create(
         model='gpt-4o',
         messages=[
-           {"role": "system", "content": "You're a helpful assistant who looks up specific information about an organization called Information Technology Senior Management Forum (ITSMF) from user queries and search results about the organization. If you are not able to answer the question from the search results or your knowledge, say 'I'm sorry, I don't have access to that information. Make sure you give answers with good formatting. You should use the search results to help answer the user's question."},
+           {"role": "system", "content": "You're a helpful assistant who looks up specific information about an organization called Information Technology Senior Management Forum (ITSMF) from user queries and search results about the organization. If you are not able to answer the question from the search results or your knowledge, say 'I'm sorry, I don't have access to that information. Make sure you give answers with good formatting, spacing, and the same font. You should use the search results to help answer the user's question."},
            {"role": "user", "content": prompt},
         ]
     )
