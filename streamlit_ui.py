@@ -66,5 +66,5 @@ user_question = st.chat_input("Ask a question...")
 if user_question:
     search_text,response = run_user_query(user_question)
     str1 = "Reponse: " + response + "\n\n" + "Search Results: " + search_text
-    st.write(str1)
+    st.write(response)
     
