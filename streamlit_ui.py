@@ -29,6 +29,11 @@ st.markdown(
 )
 
 
+st.sidebar.write(" ")
+st.sidebar.write(" ")
+st.sidebar.write(" ")
+
+
 
 if st.sidebar.button(':red[Reset Chat]'):
     pass
@@ -52,7 +57,7 @@ if st.sidebar.button(":blue[Is ITSMF hiring?]"):
 
 st.sidebar.write(" ")
 
-user_question = st.chat_input("Ask a question....")
+user_question = st.chat_input("Ask a question...")
 
 
 if user_question:
