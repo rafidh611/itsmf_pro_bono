@@ -22,15 +22,11 @@ ids = []
 
 folder_path = "./documents"
 for file_name in os.listdir(folder_path):
-    #with open(f"{folder_path}/{file_name}", "r") as file:
-        #content = file.read()
-        #Use text_splitter to create documents
-        #chunks = text_splitter.create_documents([content])
         loader = PyPDFLoader(f"{folder_path}/{file_name}")
         chunks = loader.load_and_split(text_splitter)
         #iterate over every chunk
         for index, chunk in enumerate(chunks):
-            #Append to metadata list with "title", "source_url", and "index"
+            #Append to metadata list with "title" and "index"
             metadatas.append({
                 "document_title": file_name,
                 "chunk_idx": index
@@ -39,13 +35,13 @@ for file_name in os.listdir(folder_path):
             ids.append(f"{file_name}_{index}")
             
             #Append to documents each chunk.page_content
-            ### YOUR SOLUTION HERE ###
             documents.append(chunk.page_content)
 
 
 
 collection.add(documents=documents, metadatas=metadatas, ids=ids)
 
+# Sample query run
 results = collection.query(query_texts=["What is ITSMF?"], n_results=1)
 
 print(results)

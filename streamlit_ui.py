@@ -1,5 +1,5 @@
 import streamlit as st
-
+from backend_logic import run_user_query
 
 
 st.title(":blue[ITSMF Chat Bot]")
@@ -43,17 +43,20 @@ st.sidebar.write(" ")
 st.sidebar.write(" ")
 
 if st.sidebar.button(":blue[What is ITSMF?]"):
-    pass
+    response = run_user_query("What is ITSMF?")
+    st.write(response)
 
 st.sidebar.write(" ")
 
 if st.sidebar.button(":blue[How do I join ITSMF?]"):
-    pass
+    response = run_user_query("How do I join ITSMF?")
+    st.write(response)
 
 st.sidebar.write(" ")
 
 if st.sidebar.button(":blue[Is ITSMF hiring?]"):
-    pass
+    response = run_user_query("Is ITSMF hiring?")
+    st.write(response)
 
 st.sidebar.write(" ")
 
@@ -61,4 +64,6 @@ user_question = st.chat_input("Ask a question...")
 
 
 if user_question:
-    pass
+    response = run_user_query(user_question)
+    st.write(response)
+    
