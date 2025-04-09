@@ -1,5 +1,21 @@
 import streamlit as st
-from backend_logic import run_user_query
+from backend_logic import run_rag_llm
+
+if 'messages' not in st.session_state:
+    st.session_state['messages'] = []
+
+
+def display_messages():
+    for message in st.session_state['messages']:
+        with st.chat_message(message['role']):
+            st.write(message['content'])
+
+def run_user_query(query):
+    response = run_rag_llm(query)
+    st.session_state['messages'].append({'role': 'user', 'content': user_question})
+    st.session_state['messages'].append({'role': 'assistant', 'content': response})
+    display_messages()
+
 
 
 st.title(":blue[ITSMF Chat Bot]")
@@ -36,35 +52,35 @@ st.sidebar.write(" ")
 
 
 if st.sidebar.button(':red[Reset Chat]'):
-    pass
+    st.session_state['messages'].clear()
+
+
 
 st.sidebar.write(" ")
 st.sidebar.write(" ")
 st.sidebar.write(" ")
+
 
 if st.sidebar.button(":blue[What is ITSMF?]"):
-    response = run_user_query("What is ITSMF?")
-    st.write(response)
+    run_user_query("What is ITSMF?")
 
 st.sidebar.write(" ")
 
 if st.sidebar.button(":blue[How do I join ITSMF?]"):
-    response = run_user_query("How do I join ITSMF?")
-    st.write(response)
+    run_user_query("How do I join ITSMF?")
 
 st.sidebar.write(" ")
 
 if st.sidebar.button(":blue[Is ITSMF hiring?]"):
-    response = run_user_query("Is ITSMF hiring?")
-    st.write(response)
+    run_user_query("Is ITSMF hiring?")
 
 st.sidebar.write(" ")
+
+
 
 user_question = st.chat_input("Ask a question...")
 
 
 if user_question:
-    response = run_user_query(user_question)
-    str1 = "Response: " + response
-    st.write(str1)
+    run_user_query(user_question)
     

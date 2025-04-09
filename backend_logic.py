@@ -20,7 +20,7 @@ collection = client.get_or_create_collection(name="ITSMF_RAG",
 openai_client = OpenAI()
 
 
-def run_user_query(query):
+def run_rag_llm(query):
 
     rag_results = collection.query(query_texts=[query], n_results=3, include=["documents", "metadatas"])
 
