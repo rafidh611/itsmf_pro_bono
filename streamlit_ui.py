@@ -40,15 +40,19 @@ st.sidebar.write(" ")
 if st.sidebar.button(":blue[What is ITSMF?]"):
     pass
 
+st.sidebar.write(" ")
+
 if st.sidebar.button(":blue[How do I join ITSMF?]"):
     pass
 
+st.sidebar.write(" ")
 
 if st.sidebar.button(":blue[Is ITSMF hiring?]"):
     pass
 
+st.sidebar.write(" ")
 
-user_question = st.chat_input("Ask a question...")
+user_question = st.chat_input("Ask a question....")
 
 
 if user_question:
