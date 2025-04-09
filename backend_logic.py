@@ -5,6 +5,7 @@ sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 import chromadb
 from openai import OpenAI
+import os
 
 
 
@@ -55,4 +56,4 @@ def run_user_query(query):
         ]
     )
 
-    return response.choices[0].message.content
+    return response.choices[0].message.content, rag_results, search_text
