@@ -51,10 +51,10 @@ def run_user_query(query):
     response = openai_client.chat.completions.create(
         model='gpt-4o',
         messages=[
-           {"role": "system", "content": "You're a helpful assistant who looks up specific information about an organization called Information Technology Senior Management Forum (ITSMF) from user queries. If you are not able to answer the question, say 'I'm sorry, I don't have access to that information.'"},
+           {"role": "system", "content": "You're a helpful assistant who looks up specific information about an organization called Information Technology Senior Management Forum (ITSMF) from user queries and search results about the organization. If you are not able to answer the question from the search results or your knowledge, say 'I'm sorry, I don't have access to that information.'"},
            {"role": "user", "content": prompt},
         ]
     )
 
     # return response.choices[0].message.content
-    return search_text
+    return search_text, response.choices[0].message.content
