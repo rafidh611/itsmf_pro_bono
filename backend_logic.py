@@ -56,4 +56,4 @@ def run_user_query(query):
         ]
     )
 
-    return response.choices[0].message.content, rag_results, search_text
+    return response.choices[0].message.content
